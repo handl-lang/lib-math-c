@@ -1,0 +1,14 @@
+# handl manifest for the `math-c` repo: the native-backed `math`
+# implementation package.
+#
+# [dependencies] maps an import name to a package directory (ADR-0128
+# Phase-5 seam: .hnl imports resolve by name, not `../` path). `math-c`
+# is declared self-referentially so name-specs keep resolving when a
+# dependent repo's modules are loaded under this manifest's context.
+# `math` is the contract package — it stays in `platform` (the facade
+# `handl-packages/math/index.hnl` re-exports these implementations), so
+# the back-edge `math-c -> math` crosses the repo boundary via this
+# entry, the same shape as the ws-c <-> concurrent-epoll cycle.
+[dependencies]
+math-c = { path = "handl-packages/math-c" }
+math   = { path = "../platform/handl-packages/math" }

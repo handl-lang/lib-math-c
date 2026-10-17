@@ -1,5 +1,5 @@
 --- Native-backed implementation of sqrt.
 from "type" import { Number }
-from "../math/sqrt" import { Sqrt }
+from "math/sqrt" import { Sqrt }
 
 export sqrt: Sqrt := (a) ~> math.sqrt(a)
