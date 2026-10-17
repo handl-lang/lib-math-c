@@ -7,11 +7,9 @@ on:
   workflow_dispatch:
 
 jobs:
-  # `math-c` is a pure `.hnl` package repo (no Cargo workspace), so the
-  # hnl gate *is* its CI: `hnl typecheck` / `lint` over `handl-packages/`.
-  # It needs the `hnl` binary (built from the sibling `cli` repo) and the
-  # sibling `.handl.toml` names as import names (ADR-0128 Phase 5) — here
-  # `platform`, for the `math` contract package.
+  # This repo is a pure `.hnl` package (no Cargo workspace), so the hnl gate
+  # *is* its CI: `hnl typecheck` / `lint` / `test` over `src/`. It needs the
+  # `hnl` binary, built from the sibling `cli` repo.
   hnl:
     runs-on: ubuntu-latest
     env:
@@ -28,10 +26,8 @@ jobs:
             echo "::warning::CI_TOKEN is not set — sibling fetches will fail"
           fi
 
-      - name: checkout siblings (hnl + .handl.toml deps)
-        run: |
-          git clone --depth 1 https://github.com/handl-lang/cli ../cli
-          git clone --depth 1 https://github.com/handl-lang/platform ../platform
+      - name: checkout the cli sibling (for the hnl binary)
+        run: git clone --depth 1 https://github.com/handl-lang/cli ../cli
 
       - name: drop cli's local [patch] tables
         # They point at sibling checkouts; with none mounted, cargo must

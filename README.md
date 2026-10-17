@@ -1,24 +1,23 @@
-# math-c
+# lib-math-c
 
-Native-backed math implementations for Handl — the `-c` implementation
-module of the `math` contract package. Each `handl-packages/math-c/<f>.hnl`
-binds the contract signature from `math/<f>` to the host `math.*` op
-(`export sqrt: Sqrt := (a) ~> math.sqrt(a)`).
+Native-backed implementation of the `math` ports (each arrow binds the
+contract signature to the host `math.*` op).
 
-Part of the `handl-lang` org split (ADR-0128). History is a
-`git subtree split` of `platform/handl-packages/math-c/`.
+Part of the `handl-lang` org split (ADR-0128); formerly the `math-c` repo.
+History is a `git subtree split` of `platform/handl-packages/math-c/`.
 
-## Dependencies
+## Layout
 
-`.handl.toml` wires the package-name import seam:
+```text
+src/        the .hnl sources
+pkg.hnl     dependencies: `{ deps: { math: "branch:main" } }`
+```
 
-- `math-c` — self-declared so `from "math-c/<f>"` resolves under this
-  manifest's context.
-- `math` — the contract package in `../platform/handl-packages/math`
-  (sibling checkout of `handl-lang/platform`); `math-c` files import their
-  arrow signatures (`Sqrt`, `Ceil`, …) by name from it.
+`math` is the contract package (`lib-math`), which is why this repo has the
+back-edge dependency `math-c -> math`.
 
-The matching consumer wiring lives in `platform/.handl.toml`
-(`math-c = { path = "../math-c/handl-packages/math-c" }`); the platform
-`math` facade (`handl-packages/math/index.hnl`) re-exports these
-implementations as `from "math-c/<f>"`.
+## Gate
+
+```bash
+HNL=../cli/target/debug/hnl scripts/hnl-gate.sh
+```
