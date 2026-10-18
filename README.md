@@ -19,5 +19,5 @@ back-edge dependency `math-c -> math`.
 ## Gate
 
 ```bash
-HNL=../cli/target/debug/hnl scripts/hnl-gate.sh
+HNL=../host-cli/target/debug/hnl scripts/hnl-gate.sh
 ```
