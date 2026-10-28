@@ -21,3 +21,7 @@ back-edge dependency `math-c -> math`.
 ```bash
 HNL=../host-cli/target/debug/hnl scripts/hnl-gate.sh
 ```
+
+## License
+
+MIT.
