@@ -1,0 +1,5 @@
+--- Native-backed implementation of copysign.
+from "type" import { Number }
+from "math/copysign" import { Copysign }
+
+export copysign: Copysign := (a, b) ~> math.copysign(a, b)

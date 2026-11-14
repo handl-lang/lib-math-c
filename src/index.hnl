@@ -44,6 +44,10 @@ from "./e" import e as __e
 export e := __e
 from "./exp" import exp as __exp
 export exp := __exp
+from "./exp2" import exp2 as __exp2
+export exp2 := __exp2
+from "./expm1" import expm1 as __expm1
+export expm1 := __expm1
 from "./factorial" import factorial as __factorial
 export factorial := __factorial
 from "./floor" import floor as __floor
@@ -66,12 +70,18 @@ from "./log10" import log10 as __log10
 export log10 := __log10
 from "./log2" import log2 as __log2
 export log2 := __log2
+from "./log1p" import log1p as __log1p
+export log1p := __log1p
 from "./nan" import nan as __nan
 export nan := __nan
 from "./pi" import pi as __pi
 export pi := __pi
 from "./pow" import pow as __pow
 export pow := __pow
+from "./copysign" import copysign as __copysign
+export copysign := __copysign
+from "./nextafter" import nextafter as __nextafter
+export nextafter := __nextafter
 from "./radians" import radians as __radians
 export radians := __radians
 from "./round" import round as __round

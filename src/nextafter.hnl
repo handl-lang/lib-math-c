@@ -1,0 +1,5 @@
+--- Native-backed implementation of nextafter.
+from "type" import { Number }
+from "math/nextafter" import { Nextafter }
+
+export nextafter: Nextafter := (a, b) ~> math.nextafter(a, b)

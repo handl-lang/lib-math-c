@@ -1,0 +1,5 @@
+--- Native-backed implementation of log1p.
+from "type" import { Number }
+from "math/log1p" import { Log1p }
+
+export log1p: Log1p := (a) ~> math.log1p(a)

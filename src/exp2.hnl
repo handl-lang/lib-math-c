@@ -1,0 +1,5 @@
+--- Native-backed implementation of exp2.
+from "type" import { Number }
+from "math/exp2" import { Exp2 }
+
+export exp2: Exp2 := (a) ~> math.exp2(a)
