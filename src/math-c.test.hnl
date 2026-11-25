@@ -1,0 +1,14 @@
+--- math-c tests — the native-backed `math` ports bind each contract
+--- arrow to a host `math.*` op. Smoke coverage over a representative
+--- set.
+
+from "./index" import * as m
+
+test_ceil := assert m.ceil(1.5) == 2
+test_floor := assert m.floor(1.5) == 1
+test_trunc := assert m.trunc(1.7) == 1
+test_round := assert m.round(1.5) == 2
+test_sqrt := assert m.sqrt(4) == 2
+test_gcd := assert m.gcd(12, 8) == 4
+test_pow := assert m.pow(2, 3) == 8
+test_factorial := assert m.factorial(5) == 120
