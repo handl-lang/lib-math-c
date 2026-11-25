@@ -9,7 +9,7 @@ the contract signature to the host `math.*` op. Pure `.hnl`.
 | --- | --- |
 | `src/*.hnl` | one file per contract arrow + `index.hnl` |
 | `pkg.hnl` | manifest — `modules: ["math-c"]`, dep `math: "branch:main"` |
-| `scripts/hnl-gate.sh`, `ci.sh` | the gate / bupha entry |
+| `scripts/hnl-gate.sh`, `workflows/gate.yaml` | the gate / bupha entry |
 
 ## Contract
 
