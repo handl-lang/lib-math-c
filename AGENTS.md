@@ -1,3 +1,33 @@
+# lib-math-c
+
+Native-backed implementation of the `math` ports — each arrow binds
+the contract signature to the host `math.*` op. Pure `.hnl`.
+
+## Layout
+
+| path | role |
+| --- | --- |
+| `src/*.hnl` | one file per contract arrow + `index.hnl` |
+| `pkg.hnl` | manifest — `modules: ["math-c"]`, dep `math: "branch:main"` |
+| `scripts/hnl-gate.sh`, `ci.sh` | the gate / bupha entry |
+
+## Contract
+
+- `math` is the contract package (`lib-math`); this repo has the
+  back-edge dependency `math-c -> math`.
+- No Rust crate — native-ness comes from the host `math.*` ops the
+  arrows call.
+
+## Verification
+
+```bash
+HNL=../host-cli/target/debug/hnl scripts/hnl-gate.sh
+```
+
+## License
+
+MIT.
+
 <!-- myco:agent-awareness -->
 
 ## Agent awareness
